@@ -1,3 +1,5 @@
+https://sourceforge.net/p/perl-win32-gui/bugs/83/
+
 --- origsrc/Win32-GUI-1.12/GUI.xs	2014-11-08 06:11:55.000000000 -0600
 +++ src/Win32-GUI-1.12/GUI.xs	2016-01-20 11:35:01.099580200 -0600
 @@ -3518,8 +3518,42 @@ ShellExecute(window,operation,file,param
