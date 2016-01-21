@@ -1,0 +1,46 @@
+--- origsrc/Win32-GUI-1.12/GUI.xs	2014-11-08 06:11:55.000000000 -0600
++++ src/Win32-GUI-1.12/GUI.xs	2016-01-20 11:35:01.099580200 -0600
+@@ -3518,8 +3518,42 @@ ShellExecute(window,operation,file,param
+     LPCTSTR parameters
+     LPCTSTR directory
+     INT showcmd
++PREINIT:
++    char buffer[MAX_PATH+1];
++    int i;
+ CODE:
+-    RETVAL = (IV) ShellExecute(window,operation,file,parameters,directory,showcmd);
++#ifdef __CYGWIN__
++    /* Under Cygwin, convert paths to windows
++     * paths. E.g. convert /usr/local... and /cygdrive/c/...
++     */
++#if CYGWIN_VERSION_API_MAJOR > 0 || CYGWIN_VERSION_API_MINOR >= 181
++    i = cygwin_conv_path(CCP_POSIX_TO_WIN_A|CCP_RELATIVE,file,buffer,MAX_PATH+1);
++    if (i < 0) XSRETURN_UNDEF;
++#else
++    /* old cygwin api */
++    if(cygwin_conv_to_win32_path(file,buffer) != 0)
++        XSRETURN_UNDEF;
++#endif
++#else
++        /* ShellExecute on Win98 (at least) doesn't like unix
++         * path seperators, so normalise to windows path seperators
++         */
++        for(i=0; *name && (i<MAX_PATH); ++name,++i) {
++            buffer[i] = (*name == '/' ? '\\' : *name);
++        }
++        if(*name) {
++            /* XXX Path too long - although this appears to be what
++             * LoadImage would return with such a path, it might be
++             * better to find a more specific error code.  E.g.
++             * ENAMETOOLONG?
++             */
++            SetLastError(ERROR_FILE_NOT_FOUND);
++            errno = ENOENT;
++            XSRETURN_UNDEF;
++        }
++        buffer[i] = 0;
++#endif
++    RETVAL = (IV) ShellExecute(window,operation,buffer,parameters,directory,showcmd);
+ OUTPUT:
+     RETVAL
+     

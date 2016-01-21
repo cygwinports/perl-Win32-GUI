@@ -1,0 +1,10 @@
+--- origsrc/Win32-GUI-1.12/Win32-GUI_Scintilla/Scintilla.PL	2014-10-02 02:43:55.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_Scintilla/Scintilla.PL	2016-01-20 18:20:06.446837700 -0600
+@@ -70,7 +70,6 @@ if ($SCILEXER_FILE) {
+ }
+ 
+ unless ($SCILEXER_DLL) {
+-    warn qq(Final attempt to find SciLexer.dll in PATH);
+     $SCILEXER_DLL = Win32::GUI::LoadLibrary('SciLexer');
+ }
+ 

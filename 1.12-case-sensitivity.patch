@@ -1,0 +1,88 @@
+--- origsrc/Win32-GUI-1.12/Win32-GUI_AxWindow/AxWindowRC.PL	2014-10-08 12:00:40.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_AxWindow/AxWindowRC.PL	2016-01-20 11:04:37.346791900 -0600
+@@ -35,7 +35,7 @@ if ( @ARGV > 0 ) {
+ }
+ 
+ print <<"__RC";
+-#include "Winver.h"
++#include "winver.h"
+ 
+ 1 VERSIONINFO
+ FILEVERSION    $info{FileVersion}
+--- origsrc/Win32-GUI-1.12/Win32-GUI_Constants/ConstantsRC.PL	2014-10-08 12:00:40.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_Constants/ConstantsRC.PL	2016-01-20 11:04:37.356791900 -0600
+@@ -35,7 +35,7 @@ if ( @ARGV > 0 ) {
+ }
+ 
+ print <<"__RC";
+-#include "Winver.h"
++#include "winver.h"
+ 
+ 1 VERSIONINFO
+ FILEVERSION    $info{FileVersion}
+--- origsrc/Win32-GUI-1.12/Win32-GUI_DIBitmap/DIBitmapRC.PL	2014-10-08 12:00:40.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_DIBitmap/DIBitmapRC.PL	2016-01-20 11:04:37.356791900 -0600
+@@ -35,7 +35,7 @@ if ( @ARGV > 0 ) {
+ }
+ 
+ print <<"__RC";
+-#include "Winver.h"
++#include "winver.h"
+ 
+ 1 VERSIONINFO
+ FILEVERSION    $info{FileVersion}
+--- origsrc/Win32-GUI-1.12/Win32-GUI_DropFiles/DropFiles.xs	2014-11-04 03:54:29.000000000 -0600
++++ src/Win32-GUI-1.12/Win32-GUI_DropFiles/DropFiles.xs	2016-01-20 11:04:37.356791900 -0600
+@@ -12,7 +12,7 @@
+ 
+ #include "ppport.h"
+ 
+-#include "Windows.h"
++#include "windows.h"
+ #include "shellapi.h"
+ 
+ /* void newSVpvnW(SV* s, WCHAR* w, UINT c)
+--- origsrc/Win32-GUI-1.12/Win32-GUI_DropFiles/DropFilesRC.PL	2014-10-08 12:00:40.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_DropFiles/DropFilesRC.PL	2016-01-20 11:04:37.366792000 -0600
+@@ -35,7 +35,7 @@ if ( @ARGV > 0 ) {
+ }
+ 
+ print <<"__RC";
+-#include "Winver.h"
++#include "winver.h"
+ 
+ 1 VERSIONINFO
+ FILEVERSION    $info{FileVersion}
+--- origsrc/Win32-GUI-1.12/Win32-GUI_Grid/GridRC.PL	2014-10-08 12:00:40.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_Grid/GridRC.PL	2016-01-20 11:04:37.366792000 -0600
+@@ -35,7 +35,7 @@ if ( @ARGV > 0 ) {
+ }
+ 
+ print <<"__RC";
+-#include "Winver.h"
++#include "winver.h"
+ 
+ 1 VERSIONINFO
+ FILEVERSION    $info{FileVersion}
+--- origsrc/Win32-GUI-1.12/Win32-GUI_Scintilla/Scintilla.xs	2010-09-01 16:29:14.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_Scintilla/Scintilla.xs	2016-01-20 11:04:37.366792000 -0600
+@@ -6,7 +6,7 @@
+ //we will need/use
+ 
+ #include "../GUI.h"
+-#include "./include/Scintilla.h"
++#include "./Include/Scintilla.h"
+ 
+ BOOL ProcessEventError(NOTXSPROC char *Name, int* PerlResult) {
+     if(strncmp(Name, "main::", 6) == 0) Name += 6;
+--- origsrc/Win32-GUI-1.12/Win32-GUI_Scintilla/ScintillaRC.PL	2014-10-08 12:00:40.000000000 -0500
++++ src/Win32-GUI-1.12/Win32-GUI_Scintilla/ScintillaRC.PL	2016-01-20 11:04:37.376792000 -0600
+@@ -35,7 +35,7 @@ if ( @ARGV > 0 ) {
+ }
+ 
+ print <<"__RC";
+-#include "Winver.h"
++#include "winver.h"
+ 
+ 1 VERSIONINFO
+ FILEVERSION    $info{FileVersion}
