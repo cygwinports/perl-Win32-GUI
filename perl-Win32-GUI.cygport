@@ -2,7 +2,7 @@ CPAN_AUTHOR=kmx
 inherit perl
 
 NAME="perl-Win32-GUI"
-VERSION=1.12
+VERSION=1.13
 RELEASE=1
 CATEGORY="Perl"
 SUMMARY="Win32 GUI for Perl"
@@ -13,19 +13,11 @@ interface and an event-based dialog model."
 HOMEPAGE="http://search.cpan.org/dist/Win32-GUI/"
 
 PATCH_URI="
-	1.12-case-sensitivity.patch
 	1.12-cygwin-conv-path.patch
 	1.12-system-scilexer.patch
 "
 
 REQUIRES="scintilla-win32"
-
-CYGPORT_USE_UNSTABLE_API=1
-src_unpack_hook() {
-	# FTBFS if case sensitivity is on
-	rename TYPEMAP typemap $(find -name TYPEMAP)
-	rename Typemap typemap $(find -name Typemap)
-}
 
 MAKEOPTS=-j1
 
