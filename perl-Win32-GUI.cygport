@@ -2,7 +2,7 @@ CPAN_AUTHOR=kmx
 inherit perl
 
 NAME="perl-Win32-GUI"
-VERSION=1.13
+VERSION=1.14
 RELEASE=1
 CATEGORY="Perl"
 SUMMARY="Win32 GUI for Perl"
